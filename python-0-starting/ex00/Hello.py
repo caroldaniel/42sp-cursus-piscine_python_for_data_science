@@ -1,8 +1,8 @@
 def main():
     ft_list = ["Hello", "tata!"]
-    ft_tuple = ("Hello", "toto!") 
-    ft_set = {"Hello", "tutu!"} 
-    ft_dict = {"Hello" : "titi!"}
+    ft_tuple = ("Hello", "toto!")
+    ft_set = {"Hello", "tutu!"}
+    ft_dict = {"Hello": "titi!"}
 
     replacements = ["World!", "Brazil!", "Sao Paulo!", "42SP!"]
 
@@ -28,7 +28,7 @@ def main():
     # ft_dict: Dictionary - A mutable collection of key-value pairs.
     # Dictionaries are unordered (prior to Python 3.7) and do not allow duplicate keys.
     # Each key is unique, and it maps to a specific value.
-    ft_dict["Hello"] = replacements[3]    
+    ft_dict["Hello"] = replacements[3]
 
     print(ft_list)
     print(ft_tuple)

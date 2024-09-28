@@ -1,6 +1,7 @@
 import time
 import datetime
 
+
 def main():
     # Get the current time
     current_time = time.time()
