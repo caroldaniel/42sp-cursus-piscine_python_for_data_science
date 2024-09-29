@@ -36,6 +36,11 @@ Return True if n is a positive integer, False otherwise.
 
 
 def main():
+    """
+Main entry point for the program.
+
+Print the words in a string that have a length greater than a given number.
+"""
     args = sys.argv[1:]
 
     assert len(args) == 2, 'the arguments are bad'
