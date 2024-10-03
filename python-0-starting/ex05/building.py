@@ -71,7 +71,8 @@ function for the provided text.
     # If no arguments are provided, prompt the user to provide a string
     if not args:
         # ask for user's input
-        text = input("What is the text to count?\n")
+        print("What is the text to count?")
+        text = sys.stdin.readline()
     else:
         text = args[0]
 
