@@ -1,8 +1,15 @@
 def ft_filter(function, iterable):
     """
-ft_filter(function or None, iterable) --> filter object
+    Mimics Python's built-in filter() using list comprehension.
 
-Return an iterator yielding those items of iterable for which function(item)
-is true. If function is None, return the items that are true.
-"""
-    return [elem for elem in iterable if function(elem)]
+    Parameters:
+        function: A function that returns True or False.
+        iterable: An iterable to filter.
+
+    Returns:
+        A filter object (like the built-in filter()).
+    """
+    if function is None:
+        return (item for item in iterable if item)
+
+    return (item for item in iterable if function(item))

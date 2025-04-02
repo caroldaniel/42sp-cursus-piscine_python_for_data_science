@@ -4,10 +4,10 @@ from ft_filter import ft_filter
 
 def check_string(s: str) -> bool:
     """
-check_string(s) --> bool
+    check_string(s) --> bool
 
-Return True if the string s contains only letters, False otherwise.
-"""
+    Return True if all words in s contain only alphabetic characters.
+    """
     # split the string into words
     words = s.split()
 
@@ -21,10 +21,10 @@ Return True if the string s contains only letters, False otherwise.
 
 def check_int(n: str) -> bool:
     """
-check_int(n) --> bool
+    check_int(n) --> bool
 
-Return True if n is a positive integer, False otherwise.
-"""
+    Return True if n is a positive integer, False otherwise.
+    """
     try:
         n = int(n)
         if n > 0:
@@ -37,10 +37,10 @@ Return True if n is a positive integer, False otherwise.
 
 def main():
     """
-Main entry point for the program.
+    Main entry point for the program.
 
-Print the words in a string that have a length greater than a given number.
-"""
+    Print the words in a string that have a length greater than a given number.
+    """
     args = sys.argv[1:]
 
     assert len(args) == 2, 'the arguments are bad'
