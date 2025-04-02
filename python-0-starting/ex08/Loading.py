@@ -4,6 +4,10 @@ import shutil
 
 
 def ft_tqdm(lst: range) -> None:  # type: ignore
+    """"
+    A simple progress bar for iterables
+    """
+
     total = len(lst)
     start_time = time.time()
 
