@@ -6,7 +6,10 @@ def all_thing_is_obj(object: any) -> int:
 
     if isinstance(object, str):
         print(f"{object} is in the kitchen : {type(object)}")
-    elif isinstance(object, list) or isinstance(object, tuple) or isinstance(object, set) or isinstance(object, dict):
+    elif (isinstance(object, list) or
+          isinstance(object, tuple) or
+          isinstance(object, set) or
+          isinstance(object, dict)):
         print(f"{class_name.capitalize()} : {obj_type}")
     else:
         print("Type not found")

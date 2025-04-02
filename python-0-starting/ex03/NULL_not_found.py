@@ -1,40 +1,51 @@
-def NULL_not_found(object: any) -> int:
-    # Check if the object is NoneType
-    # In Python, the `None` object is a singleton used to represent the absence of a value.
-    # The `is None` check is the most efficient way to check for this case.
-    if object is None:
-        print(f"Nothing : None {type(object)}")
+def NULL_not_found(obj: any) -> int:
+    """
+    Analyzes a given object and asserts if it's a 'null-like' value in Python.
+    Prints the corresponding type label and Python type, and returns:
+    - 0 if it's a known null-like value
+    - 1 if the type is not found
+    """
 
-    # Check if the object is NaN (Not a Number)
-    # In Python, NaN (Not a Number) is a special floating-point value defined in IEEE 754 standard.
-    # A unique property of NaN is that it is never equal to itself, i.e., `NaN != NaN` returns True.
-    # So, `object != object` is a quick way to check for NaN in floating-point numbers.
-    elif object != object:
-        print(f"Cheese : NaN {type(object)}")
+    # NoneType
+    # `None` is the singleton object in Python that represents the absence of a
+    # value. It's used in places where no other value makes sense. The best way
+    # to check for None is using `is None`.
+    if obj is None:
+        print(f"Nothing: None {type(obj)}")
 
-    # Check if the object is 0
-    # Here, we check if the object is numerically equal to 0. This would work for both integers and floats.
-    # `0` is considered a falsy value in Python, but this check explicitly looks for the number 0.
-    elif object == 0:
-        print(f"Zero : {type(object)}")
+    # NaN (Not a Number)
+    # NaN is a special float value defined by the IEEE 754 standard.
+    # A unique property of NaN is that it's not equal to itself (NaN != NaN),
+    # but to make sure the print matches expected output ("nan"), we check with
+    # str().
+    elif isinstance(obj, float) and str(obj) == 'nan':
+        print(f"Cheese: nan {type(obj)}")
 
-    # Check if the object is an empty string
-    # An empty string `''` is another example of a falsy value in Python.
-    # This condition checks explicitly if the object is an empty string (not any falsy value).
-    elif object == '':
-        print(f"Empty : {type(object)}")
+    # Zero (0)
+    # Checks if the object is an integer and equal to zero.
+    # `0` is considered a falsy value in Python, but here we explicitly check
+    # for numeric value and integer type to ensure precise formatting.
+    elif obj == 0 and type(obj) is int:
+        print(f"Zero: {obj} {type(obj)}")
 
-    # Check if the object is False
-    # Python treats `False` as a falsy value, and `False` is an instance of the `bool` type.
-    # This condition checks if the object is the boolean `False` explicitly.
-    elif object is False:
-        print(f"Fake : {type(object)}")
+    # Empty String ('')
+    # An empty string is a common null-like object. We check that the object is
+    # exactly an empty string and of type `str` to ensure type safety.
+    elif obj == '' and type(obj) is str:
+        print(f"Empty: {type(obj)}")
 
-    # If the object is not any of the above
-    # If none of the above conditions were met, it means the object isn't None, NaN, 0, an empty string, or False.
-    # This clause will catch all other cases, indicating the object's type was not one of the "special" types we're checking for.
+    # Boolean False
+    # Python's boolean `False` is another null-like object. This checks
+    # explicitly for the `False` singleton, not any falsy value like empty list
+    # or 0.
+    elif obj is False:
+        print(f"Fake: {obj} {type(obj)}")
+
+    # Type Not Found
+    # If none of the above cases matched, the object is not recognized as a
+    # defined null-like value. Print a fallback message and return 1.
     else:
-        print("Type not found")
+        print("Type not Found")
         return 1
 
     return 0
